@@ -30,7 +30,7 @@ def connect(request):
     client_socket = s.socket(s.AF_INET, s.SOCK_STREAM)
 
     # connect client to server IP and port
-    address, port = "192.168.137.1", 3389
+    address, port = "192.168.137.1", 6789
     client_socket.connect((address, port))
 
     try:
