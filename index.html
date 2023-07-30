@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="static/styles/ParkingMeter.png">
+    <title>Meter Maid Watcher</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/web.css')}}">
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type=text/javascript>
+        $(function() {
+          $('#park-button').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/park',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+
+        $(function() {
+          $('#tattle-button').on('click', function(e) {
+            e.preventDefault()
+            $.getJSON('/tattle',
+                function(data) {
+              //do nothing
+            });
+            return false;
+          });
+        });
+</script>
+  </head>
+  <body>
+
+    <main>
+        <div id="buttons">
+
+
+            <button id="park-button" type="submit">Park</button>
+
+            <button id="tattle-button" type="submit">Tattle</button>
+
+        </div>
+
+    </main>
+  </body>
+</html>
