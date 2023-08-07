@@ -50,6 +50,7 @@ def main():
         connection, new_client_address = server_socket.accept()
         # store IP address
         new_client_address = new_client_address[0]
+        print(new_client_address)
 
         # Handle each client in a new thread
         threading.Thread(target=handle_client, args=(connection, new_client_address, clients)).start()
