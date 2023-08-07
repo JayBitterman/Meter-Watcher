@@ -22,8 +22,8 @@ def handle_client(connection, address, clients):
         elif status == "tattle":
             print(clients)
             for client in clients:
-                loc1 = geocoder.ipinfo(client[0]).latlng
-                loc2 = geocoder.ipinfo(address[0]).latlng
+                loc1 = geocoder.ipinfo(client).latlng
+                loc2 = geocoder.ipinfo(address).latlng
                 if geocoder.distance(loc1, loc2) < 1:
                     connection.send(bytes("Meter Maid in your area! Run!", encoding='UTF-8'))
     except Exception as msg:
