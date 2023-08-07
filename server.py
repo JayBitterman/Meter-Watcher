@@ -10,7 +10,7 @@ def handle_client(connection, address, clients):
         print("Client Message: " + user_msg.decode())
 
         # park or tattle
-        status = user_msg.decode().split(" ")[0]
+        status = user_msg.decode()
 
         # Store new parked clients
         if status == "park" and address not in clients:
@@ -20,6 +20,7 @@ def handle_client(connection, address, clients):
             clients.remove(address)
         # Send tattle alert
         elif status == "tattle":
+            print(clients)
             for client in clients:
                 loc1 = geocoder.ipinfo(client[0]).latlng
                 loc2 = geocoder.ipinfo(address[0]).latlng
