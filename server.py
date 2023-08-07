@@ -21,7 +21,7 @@ def handle_client(connection, address, clients):
         # Send tattle alert
         elif status == "tattle":
             for client in clients:
-                print(adress)
+                print(address)
                 print(client)
                 loc1 = geocoder.ipinfo(client).latlng
                 loc2 = geocoder.ipinfo(address).latlng
