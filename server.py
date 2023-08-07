@@ -28,7 +28,6 @@ def handle_client(connection, address, clients):
                 print(loc1)
                 print(loc2)
                 if geocoder.distance(loc1, loc2) < 1:
-                    ptint("test")
                     connection.send(bytes("Meter Maid in your area! Run!", encoding='UTF-8'))
     except Exception as msg:
         print(msg)
