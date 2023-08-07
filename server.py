@@ -20,11 +20,15 @@ def handle_client(connection, address, clients):
             clients.remove(address)
         # Send tattle alert
         elif status == "tattle":
-            print(clients)
             for client in clients:
+                print(adress)
+                print(client)
                 loc1 = geocoder.ipinfo(client).latlng
                 loc2 = geocoder.ipinfo(address).latlng
+                print(loc1)
+                print(loc2)
                 if geocoder.distance(loc1, loc2) < 1:
+                    ptint("test")
                     connection.send(bytes("Meter Maid in your area! Run!", encoding='UTF-8'))
     except Exception as msg:
         print(msg)
@@ -51,7 +55,6 @@ def main():
         connection, new_client_address = server_socket.accept()
         # store IP address
         new_client_address = new_client_address[0]
-        print(new_client_address)
 
         # Handle each client in a new thread
         threading.Thread(target=handle_client, args=(connection, new_client_address, clients)).start()
