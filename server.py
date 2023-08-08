@@ -27,8 +27,10 @@ def handle_client(connection, address, clients):
                 loc2 = geocoder.ipinfo(address).latlng
                 print(loc1)
                 print(loc2)
-                if geocoder.distance(loc1, loc2) < 1:
-                    connection.send(bytes("Meter Maid in your area! Run!", encoding='UTF-8'))
+                if geocoder.distance(loc1, loc2) < 0.5:
+                    connection.send(bytes("very close", encoding='UTF-8'))
+                elif geocoder.distance(loc1, loc2) < 1:
+                    connection.send(bytes("close", encoding='UTF-8'))
     except Exception as msg:
         print(msg)
     finally:
