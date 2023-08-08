@@ -20,13 +20,9 @@ def handle_client(connection, address, clients):
             clients.remove(address)
         # Send tattle alert
         elif status == "tattle":
-            for client in clients:
-                print(address)
-                print(client)
+            for client in clients:        
                 loc1 = geocoder.ipinfo(client).latlng
-                loc2 = geocoder.ipinfo(address).latlng
-                print(loc1)
-                print(loc2)
+                loc2 = geocoder.ipinfo(address).latlng               
                 if geocoder.distance(loc1, loc2) < 0.5:
                     connection.send(bytes("very close", encoding='UTF-8'))
                 elif geocoder.distance(loc1, loc2) < 1:
